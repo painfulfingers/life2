@@ -1,0 +1,11 @@
+{% extends"upper.html" %}{% from 'bootstrap5/form.html' import render_form %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+  <p class="flash">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{{ render_form(regs,novalidate=True,button_map={'submit': 'primary'}) }}
+{% endblock %}  

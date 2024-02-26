@@ -1,0 +1,13 @@
+{% extends "upper.html" %}
+{% from 'bootstrap5/form.html' import render_field %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {{ series.csrf_token() }}
+    {{ render_field(series.product) }}
+    {{ render_field(series.price) }}
+    {{ render_field(series.description) }}
+    {{ render_field(series.data_file) }}
+    {{ render_field(series.enter) }}
+</form>
+{% endblock %}

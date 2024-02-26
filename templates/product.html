@@ -1,0 +1,17 @@
+{% extends"upper.html" %}
+{% block content %}
+{% for i in all_books %}
+<div class="card" style="width: 18rem;">
+  {% for pic in listing[i.id] %}
+  <img src="data:image/jpeg;base64,{{ pic }}" class="card-img-top" alt="...">
+  {% endfor %}
+  <div class="card-body">
+    <h5 class="card-title">{{i.product}}</h5>
+    <p class="card-text">{{i.description}}</p>
+    <p class="card-text"><small class="text-body-secondary">${{i.price}}</small></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}  

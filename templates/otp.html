@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="static/css">
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="flash">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+  <h1>{{generate_number}}</h1>
+  <div class="container"> 
+   <form action="{{ url_for('forgot_password') }}" method="post">
+    <label for="fname">Enter Otp:</label><br>
+    <input type="text" id="fname" name="otp"><br>
+    <input type="submit" value="enter" name="enter">
+    <input type="submit" value="resend" name="enter">
+   </form>
+  </div>
+</body>
+</html>
+

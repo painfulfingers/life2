@@ -1,0 +1,27 @@
+{% extends"upper.html" %}
+{% block content %}
+{% for i in all_books%}
+{% if check.id == i.eat.id %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        {% for pic in change[i.id] %}
+        
+        <img src="data:image/jpeg;base64,{{ pic }}" class="img-fluid rounded-start" alt="...">
+        {% endfor %}
+        
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{i.product}}</h5>
+          <p class="card-text">{{i.description}}</p>
+          <p class="card-text"><small class="text-body-secondary">${{i.price}}</small></p>
+          <a href="{{url_for('delete', index=i.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete</a>
+          <a href="{{url_for('edit', index=i.id)}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% endfor %}
+{% endblock %}  
